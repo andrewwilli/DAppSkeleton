@@ -69,8 +69,8 @@ App = {
 
         App.contracts["Contract"].deployed().then(async(instance) =>{
 
-            const v = await instance.value();
-            console.log(v);
+            const v = await instance.value(); // Solidity uint are Js BigNumbers 
+            console.log(v.toNumber());
             $("#valueId").html("" + v);
         });
     },

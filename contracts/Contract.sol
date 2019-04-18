@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 /*
     Contract with a value, an event and a function
@@ -13,7 +13,7 @@ contract Contract {
     uint public value;
     event click();
 
-    constructor() {
+    constructor() public {
 
         value = 1;
     }
