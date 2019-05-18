@@ -15,7 +15,7 @@ Truffle is used for the project initialization on the Smart Contract side and th
     - JQuery
     - Bootstrap
     - [Web3js](https://github.com/ethereum/web3.js/)
-    - [Truffle-Contract](https://github.com/trufflesuite/truffle-contract), nice smart contract's abstractions
+    - [Truffle-Contract](https://github.com/trufflesuite/truffle/tree/develop/packages/truffle-contract), nice smart contract's abstractions
 
 ## Install
 
@@ -23,7 +23,7 @@ Install nodeJS
 Install Metamask and Ganache
 `npm install -g truffle`
 Clone this repository
-`npm install` to install nodejs project dependencies
+`npm install` to install nodejs project dependencies (lite-server and truffle-contract)
 
 ## Setup workflow
 
