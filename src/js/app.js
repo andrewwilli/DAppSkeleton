@@ -3,6 +3,7 @@ App = {
     contracts: {},
     web3Provider: null,             // Web3 provider
     url: 'http://localhost:8545',   // Url for web3
+    account: '0x0',                 // current ehtereum account
 
     init: function() {
 
@@ -37,6 +38,15 @@ App = {
     /* Upload the contract's abstractions */
     initContract: function() {
 
+        // Get current account
+        web3.eth.getCoinbase(function(err, account) {
+            if(err == null) {
+                App.account = account;
+                console.log(account);
+                $("#accountId").html("Account:" + account);
+            }
+        });
+
         // Load content's abstractions
         $.getJSON("Contract.json").done(function(c) {
             App.contracts["Contract"] = TruffleContract(c);
@@ -49,14 +59,15 @@ App = {
     // Write an event listener
     listenForEvents: function() {
 
-        App.contracts["Contract"].deployed().then(async(instance) => {
+        App.contracts["Contract"].deployed().then(async (instance) => {
 
-            web3.eth.getBlockNumber(function(error, block) {
-
-                instance.click({}, {fromBlock: block, toBlock: 'latest'}).watch(function(error, event) {
-
+            web3.eth.getBlockNumber(function (error, block) {
+                // click is the Solidity event
+                instance.click().on('data', function (event) {
                     $("#eventId").html("Event catched!");
                     console.log("Event catched");
+                    console.log(event);
+                    // If event has parameters: event.returnValues.valueName
                 });
             });
         });
@@ -81,7 +92,7 @@ App = {
 
         App.contracts["Contract"].deployed().then(async(instance) =>{
 
-            await instance.pressClick();
+            await instance.pressClick({from: App.account});
         });
     } 
 }

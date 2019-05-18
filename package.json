@@ -11,8 +11,10 @@
     "devDependencies": {
         "lite-server": "^2.3.0"
     },
-
     "scripts": {
         "dev": "lite-server"
+    },
+    "dependencies": {
+        "truffle-contract": "^4.0.16"
     }
 }
