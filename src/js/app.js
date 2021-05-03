@@ -100,6 +100,7 @@ App = {
 // Call init whenever the window loads
 $(function() {
     $(window).on('load', function () {
+
         App.init();
     });
 });

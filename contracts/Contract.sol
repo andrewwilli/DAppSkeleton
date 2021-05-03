@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity 0.8.3;
 
 /*
     Contract with a value, an event and a function
@@ -15,7 +15,7 @@ contract Contract {
 
     constructor() public {
 
-        value = 1;
+        value = 42;
     }
 
     function pressClick() public {
