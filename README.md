@@ -35,3 +35,8 @@ Clone this repository
 - `truffle migrate --reset` (Ganache should be running)
 - `npm run dev` to run lite-server (opens index.html)
 
+----------
+
+This project structure and approach follows a tutorial made by [DApp University](https://www.youtube.com/channel/UCY0xL8V6NzzFcwzHCgB8orQ). 
+
+

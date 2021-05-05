@@ -3,7 +3,7 @@ App = {
     contracts: {},
     web3Provider: null,             // Web3 provider
     url: 'http://localhost:8545',   // Url for web3
-    account: '0x0',                 // current ehtereum account
+    account: '0x0',                 // current ethereum account
 
     init: function() {
 
@@ -13,6 +13,7 @@ App = {
     /* initialize Web3 */
     initWeb3: function() {
         
+        // console.log(web3);
         
         if(typeof web3 != 'undefined') {
 //            App.web3Provider = web3.currentProvider;
@@ -42,8 +43,7 @@ App = {
         web3.eth.getCoinbase(function(err, account) {
             if(err == null) {
                 App.account = account;
-                console.log(account);
-                $("#accountId").html("Account:" + account);
+                $("#accountId").html("Your address: " + account);
             }
         });
 
@@ -61,7 +61,7 @@ App = {
 
         App.contracts["Contract"].deployed().then(async (instance) => {
 
-            web3.eth.getBlockNumber(function (error, block) {
+            // web3.eth.getBlockNumber(function (error, block) {
                 // click is the Solidity event
                 instance.click().on('data', function (event) {
                     $("#eventId").html("Event catched!");
@@ -69,7 +69,7 @@ App = {
                     console.log(event);
                     // If event has parameters: event.returnValues.valueName
                 });
-            });
+            // });
         });
 
         return App.render();
